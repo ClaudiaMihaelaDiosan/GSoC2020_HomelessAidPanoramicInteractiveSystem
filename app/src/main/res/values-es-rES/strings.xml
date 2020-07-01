@@ -236,6 +236,7 @@
     <string name="selected_location">Has seleccionado la siguiente ubicación:</string>
     <string name="location_error_toast">Tienes que seleccionar una ubicación</string>
     <string name="toast_save_btn">Información guardada correctamente!</string>
+    <string name="hint_autocomplete">Buscar dirrección</string>
 
 
     <!--    Homeless custom view -->

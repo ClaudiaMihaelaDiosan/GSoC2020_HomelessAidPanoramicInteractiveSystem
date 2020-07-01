@@ -13,6 +13,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/margins"
         app:menu_showShadow="true"
+        app:menu_fab_size="normal"
         app:menu_fab_label=""
         android:elevation="@dimen/elevation"
         app:menu_openDirection="up"
@@ -27,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_label="@string/new_homeless_profile"
+            app:fabSize="auto"
             app:fab_size="mini"
             app:fab_colorNormal="@color/colorPrimaryDark"
             app:fab_colorPressed="@color/colorPrimary"
@@ -41,7 +43,8 @@
             app:fab_colorNormal="@color/colorPrimaryDark"
             app:fab_colorPressed="@color/colorPrimary"
             android:src="@drawable/send_notification_drawable"
-            app:fab_size="mini">
+            app:fab_size="mini"
+            app:fabSize="auto">
         </com.github.clans.fab.FloatingActionButton>
 
     </com.github.clans.fab.FloatingActionMenu>
@@ -52,13 +55,15 @@
         android:padding="@dimen/padding"
         android:layout_width="match_parent"
         android:queryHint="@string/search_hint_donor_volunteer"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginBottom="@dimen/bottom_margin"
         android:layout_height="?actionBarSize"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:scrollbars="vertical"/>
 
 </FrameLayout>

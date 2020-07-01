@@ -43,12 +43,12 @@
     <dimen name="intro_view_pager">700dp</dimen>
     <dimen name="intro_bottom_margin">150dp</dimen>
     <dimen name="lite_list_row_map">250dp</dimen>
-    <dimen name="map_fragment">300dp</dimen>
+    <dimen name="map_fragment">700dp</dimen>
     <dimen name="needs_edit_text_box">250dp</dimen>
     <dimen name="profile_edit_text_box">250dp</dimen>
     <dimen name="header">400dp</dimen>
     <dimen name="terms_fragment">500dp</dimen>
-    <dimen name="signature_pad">200dp</dimen>
+    <dimen name="signature_pad">300dp</dimen>
     <dimen name="lg_button_weight">100dp</dimen>
     <dimen name="lg_button_height">200dp</dimen>
 

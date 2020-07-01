@@ -235,6 +235,7 @@
     <string name="selected_location">You have selected the next location:</string>
     <string name="location_error_toast">You have to select a location</string>
     <string name="toast_save_btn">Your information saved correctly!</string>
+    <string name="hint_autocomplete">Search address</string>
 
     <!--    Homeless custom view -->
     <string name="hcv_username">Username</string>

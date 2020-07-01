@@ -117,8 +117,8 @@
                     android:textSize="@dimen/body"
                     android:layout_marginStart="@dimen/start_margin"
                     android:layout_marginEnd="@dimen/end_margin"
-                    app:chipIcon="@drawable/hygiene_icon"
                     app:iconEndPadding="@dimen/padding"
+                    app:chipIcon="@drawable/hygiene_icon"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
 

@@ -54,8 +54,7 @@ public class LocationFragment extends Fragment implements  OnMapAndViewReadyList
     /*Map and Autocomplete Place*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
     private GoogleMap mGoogleMap;
-    private Double latitude;
-    private Double longitude;
+
 
     /*TextViews*/
     private TextView selectedLocationTV;
@@ -142,6 +141,7 @@ public class LocationFragment extends Fragment implements  OnMapAndViewReadyList
     public void setupPlaceAutoComplete(){
         AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment);
         assert autocompleteSupportFragment != null;
+        autocompleteSupportFragment.setHint(getString(R.string.hint_autocomplete));
         autocompleteSupportFragment.setPlaceFields(placeFields);
         autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
