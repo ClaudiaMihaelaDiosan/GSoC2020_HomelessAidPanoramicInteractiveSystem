@@ -213,6 +213,7 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
     private void setupPlaceAutoComplete(){
         AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment_donor);
         assert autocompleteSupportFragment != null;
+        autocompleteSupportFragment.setHint(getString(R.string.hint_autocomplete));
         autocompleteSupportFragment.setPlaceFields(placeFields);
         autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
