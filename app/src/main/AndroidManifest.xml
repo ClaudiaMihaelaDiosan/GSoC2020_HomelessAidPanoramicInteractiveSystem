@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission
         android:name="android.permission.MEDIA_CONTENT_CONTROL"
         tools:ignore="ProtectedPermissions" />
@@ -27,17 +26,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
+        <activity android:name=".liquidGalaxy.SettingsActivity"></activity>
+        <activity android:name=".liquidGalaxy.HelpActivity" />
         <activity
             android:name=".donor.HomeDonor"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize"
             android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize"/>
-        <activity android:name=".volunteer.CreateHomelessProfile"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize"/>
-        <activity android:name=".common.Payment"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".volunteer.CreateHomelessProfile"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".common.Payment"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".common.YouTubePlayer"
             android:configChanges="orientation|screenSize" />
@@ -49,7 +52,10 @@
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".register.RegisterUserActivity" />
-        <activity android:name=".liquidGalaxy.FirstActivityLG" />
+        <activity
+            android:name=".liquidGalaxy.FirstActivityLG"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape" />
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".login.ForgotPasswordActivity" />
         <activity android:name=".login.LoginActivity" />
@@ -70,9 +76,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
     </application>
-
-
 
 </manifest>

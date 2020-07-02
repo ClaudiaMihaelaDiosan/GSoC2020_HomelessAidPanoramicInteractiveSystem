@@ -319,6 +319,9 @@
     <string name="delivery_title">Donaciones para entregar</string>
 
     <!--First activity lg-->
+    <string name="lg_about">About Section</string>
+
+
     <string name="lg_title">Conectar a Liquid Galaxy</string>
     <string name="lg_username">Nombre de usuario</string>
     <string name="lg_username_password_hint">lg</string>
@@ -329,5 +332,18 @@
     <string name="lg_port_hint">22</string>
     <string name="lg_start_btn">EMPEZAR</string>
 
+    <!--    Lg menu-->
+    <string name="settings">Configuración</string>
+    <string name="help">Ayuda</string>
+    <string name="about">Sobre nosotros</string>
+    <string name="title_activity_settings">Configuración</string>
+
+    <!--    About dialog -->
+    <string name="lg_about_title">About HAPIS Application</string>
+    <string name="lg_about_button">CERRAR</string>
+    <string name="lg_about_info">Esta aplicación ha sido desarollada para el concurso Google Summer Of Code 2020 </string>
+    <string name="lg_about_contact">Desarollada por Mihaela Claudia Diosan (mcd1591@gmail.com) </string>
+    <string name="lg_about_github">https://github.com/LiquidGalaxyLAB/GSoC2020_HomelessAidPanoramicInteractiveSystem?organization=LiquidGalaxyLAB&amp;organization=LiquidGalaxyLAB</string>
+    <string name="lg_about_thanks">Desarollada con la ayuda de los Laboratorios TIC del Parque Cientifico de Lleida y los Laboratorios Liquid Galaxy</string>
 
 </resources>
