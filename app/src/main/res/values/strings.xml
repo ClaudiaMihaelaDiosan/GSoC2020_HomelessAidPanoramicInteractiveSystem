@@ -345,4 +345,10 @@
     <string name="lg_about_thanks">Developed thanks to TIC Laboratories of the Scientific Park of Lleida and Liquid Galaxy LAB</string>
 
 
+    <!--Dashboard cards-->
+    <string name="cities">Cities</string>
+    <string name="statistics">Statistics</string>
+    <string name="demo">Demo</string>
+    <string name="tour">Tour</string>
+
 </resources>

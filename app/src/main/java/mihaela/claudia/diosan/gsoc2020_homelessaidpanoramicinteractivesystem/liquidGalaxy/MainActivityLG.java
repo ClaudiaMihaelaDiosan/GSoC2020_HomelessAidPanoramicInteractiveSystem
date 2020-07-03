@@ -1,50 +1,70 @@
 package mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
+import androidx.preference.ListPreference;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.MainActivity;
+import java.util.ArrayList;
+import java.util.List;
+
 import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.R;
+import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.adapters.CardsAdapter;
 import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.lg_connection.LGCommand;
 import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.lg_connection.LGConnectionManager;
+import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.utils.Cards;
 
-public class FirstActivityLG extends AppCompatActivity {
+public class MainActivityLG extends AppCompatActivity {
 
-    MaterialButton test;
+   /* MaterialButton test;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_l_g);
-        test = findViewById(R.id.test);
+        setContentView(R.layout.activity_main_lg);
+       /* test = findViewById(R.id.test);*/
 
-        test.setOnClickListener(v -> {
+        buildRecyclerView();
+
+    /*    test.setOnClickListener(v -> {
             try {
                 String sentence = "/home/lg/bin/lg-relaunch > /home/lg/log.txt";
                 showAlertAndExecution(sentence, "relaunch");
             } catch (Exception e) {
                 Toast.makeText(this, getResources().getString(R.string.error_chip), Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
     }
 
-    /*SHUT DOWN, RELAUNCH and REBOOT*/
+
+    private void buildRecyclerView(){
+        final RecyclerView recyclerView = findViewById(R.id.recycler_view_first_lg);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
+
+        final List<Cards> cards = new ArrayList<>();
+
+        cards.add(new Cards(R.drawable.baseline_location_city_white_48,getString(R.string.cities), getColor(R.color.color_first_card)));
+        cards.add(new Cards(R.drawable.baseline_bar_chart_white_48dp, getString(R.string.statistics), getColor(R.color.color_second_card)));
+        cards.add(new Cards(R.drawable.baseline_public_white_48dp, getString(R.string.demo), getColor(R.color.color_third_card)));
+        cards.add(new Cards(R.drawable.baseline_directions_white_48dp, getString(R.string.tour), getColor(R.color.color_forth_card)));
+        final CardsAdapter cardsAdapter = new CardsAdapter(cards);
+        recyclerView.setAdapter(cardsAdapter);
+    }
+
+  /*  *//*SHUT DOWN, RELAUNCH and REBOOT*//*
     private void showAlertAndExecution(final String sentence, String action) {
         // prepare the alert box
         MaterialAlertDialogBuilder alertbox = new MaterialAlertDialogBuilder(this);
@@ -65,7 +85,7 @@ public class FirstActivityLG extends AppCompatActivity {
         // display box
         alertbox.show();
     }
-
+*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.lg_menu, menu);

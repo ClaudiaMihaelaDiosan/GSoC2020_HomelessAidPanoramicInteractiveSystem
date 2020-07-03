@@ -346,4 +346,10 @@
     <string name="lg_about_github">https://github.com/LiquidGalaxyLAB/GSoC2020_HomelessAidPanoramicInteractiveSystem?organization=LiquidGalaxyLAB&amp;organization=LiquidGalaxyLAB</string>
     <string name="lg_about_thanks">Desarollada con la ayuda de los Laboratorios TIC del Parque Cientifico de Lleida y los Laboratorios Liquid Galaxy</string>
 
+    <!--Dashboard cards-->
+    <string name="cities">Ciudades</string>
+    <string name="statistics">Estadísticas</string>
+    <string name="demo">Demo</string>
+    <string name="tour">Tour</string>
+
 </resources>

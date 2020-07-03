@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margins"
+        android:orientation="vertical"
+        tools:context=".liquidGalaxy.MainActivityLG">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_first_lg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:layout_weight="2"
+            android:layout_marginTop="@dimen/donor_top_margin"
+            android:layout_marginBottom="@dimen/donor_bottom_margin"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/grey"/>
+
+
+    </LinearLayout>
+
+
+

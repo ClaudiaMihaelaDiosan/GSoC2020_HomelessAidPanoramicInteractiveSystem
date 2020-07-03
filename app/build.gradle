@@ -66,5 +66,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:20.1.7'
     implementation files('libs/jsch-0.1.53.jar')
     implementation files('libs/jzlib-1.1.1.jar')
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }

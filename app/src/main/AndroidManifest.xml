@@ -53,7 +53,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".register.RegisterUserActivity" />
         <activity
-            android:name=".liquidGalaxy.FirstActivityLG"
+            android:name=".liquidGalaxy.MainActivityLG"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="landscape" />
         <activity android:name=".register.RegisterActivity" />
@@ -68,7 +68,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

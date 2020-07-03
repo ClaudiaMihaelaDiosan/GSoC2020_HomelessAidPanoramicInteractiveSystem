@@ -51,6 +51,7 @@
     <dimen name="signature_pad">300dp</dimen>
     <dimen name="lg_button_weight">100dp</dimen>
     <dimen name="lg_button_height">200dp</dimen>
+    <dimen name="dashboard_cards">200dp</dimen>
 
     <!--Delivery margins-->
     <dimen name="delivery_top_margin">100dp</dimen>

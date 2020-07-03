@@ -13,8 +13,6 @@ import java.util.Properties;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 
-import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.legacy.data.POIsProvider;
-
 public class LGConnectionManager implements Runnable {
     public static final short CONNECTED = 1;
     public static final short NOT_CONNECTED = 2;
@@ -70,7 +68,7 @@ public class LGConnectionManager implements Runnable {
     }
 
 
-    private void loadDataFromDB() {
+/*    private void loadDataFromDB() {
         Cursor category_cursor = POIsProvider.getLGConnectionData();
         if (category_cursor.moveToNext()) {
             user = category_cursor.getString(category_cursor.getColumnIndexOrThrow("user"));
@@ -82,7 +80,7 @@ public class LGConnectionManager implements Runnable {
 
     private void saveDataToDB() {
         POIsProvider.updateLGConnectionData(user, password, hostname, port);
-    }
+    }*/
 
     private Session getSession() {
         Session oldSession = this.session;
