@@ -171,7 +171,6 @@
                 android:backgroundTint="@color/lila_color"
                 app:icon="@drawable/volunteer_icon"
                 app:iconTint="@color/black" />
-
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
