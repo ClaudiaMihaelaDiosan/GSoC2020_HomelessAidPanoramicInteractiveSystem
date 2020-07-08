@@ -62,6 +62,7 @@ public class MainActivityLG extends AppCompatActivity implements View.OnClickLis
             case R.id.statistics_cv:
                 MainActivity.showSuccessToast(this,"Statistics");
                 break;
+
             case R.id.demo_cv:
                 MainActivity.showSuccessToast(this,"Demo");
                 break;

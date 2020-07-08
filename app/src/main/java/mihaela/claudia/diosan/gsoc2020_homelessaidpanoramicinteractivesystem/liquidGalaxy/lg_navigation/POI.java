@@ -249,7 +249,7 @@ public class POI implements IJsonPacker, Parcelable {
         parcel.writeInt(categoryId);
     }
 
-    public static POI getPOIByIDFromDB(int id) {
+   /* public static POI getPOIByIDFromDB(int id) {
         Cursor c = POIsContract.POIEntry.getPoiByID(id);
 
         if (c.moveToNext()) {
@@ -259,5 +259,5 @@ public class POI implements IJsonPacker, Parcelable {
         }
         c.close();
         return null;
-    }
+    }*/
 }
