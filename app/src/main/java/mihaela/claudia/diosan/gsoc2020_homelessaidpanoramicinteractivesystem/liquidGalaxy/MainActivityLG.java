@@ -1,9 +1,6 @@
 package mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.ListPreference;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,25 +9,27 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.MainActivity;
 import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.R;
-import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.adapters.CardsAdapter;
-import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.lg_connection.LGCommand;
-import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.lg_connection.LGConnectionManager;
-import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.utils.Cards;
+import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.lg_navigation.POI;
+import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.liquidGalaxy.lg_navigation.POIController;
 
 public class MainActivityLG extends AppCompatActivity implements View.OnClickListener {
 
   MaterialCardView cities, statistics, demo, tour;
+
+    private static final POI EARTH_POI = new POI()
+            .setLongitude(10.52668d)
+            .setLatitude(40.085941d)
+            .setAltitude(0.0d)
+            .setHeading(0.0d)
+            .setTilt(0.0d)
+            .setRange(10000000.0d)
+            .setAltitudeMode("relativeToSeaFloor");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,7 @@ public class MainActivityLG extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
             case R.id.cities_cv:
                 startActivity(new Intent(MainActivityLG.this, CititesActivity.class));
+                POIController.getInstance().moveToPOI(EARTH_POI, null);
                 break;
             case R.id.statistics_cv:
                 MainActivity.showSuccessToast(this,"Statistics");

@@ -8,6 +8,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -51,8 +53,10 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.R;
 
@@ -100,6 +104,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
     private ChipGroup chipGroup;
     private AutocompleteSupportFragment autocompleteSupportFragment;
+    private Geocoder mGeocoder;
 
     /*Autocomplete place field*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
@@ -114,7 +119,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         firebaseInit();
         initPlaces();
         updateLocation();
-
+        mGeocoder = new Geocoder(getActivity(), Locale.getDefault());
         username = preferences.getString("homelessUsername", "");
         usernameTV.setText(username);
 
@@ -341,6 +346,34 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
     }
 
+    private String getCityNameByCoordinates(double lat, double lon)  {
+
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (addresses != null && addresses.size() > 0) {
+            return addresses.get(0).getLocality();
+        }
+        return null;
+    }
+
+    private String getCountryNameByCoordinates(double lat, double lon){
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (addresses != null && addresses.size() > 0)
+        {
+            return addresses.get(0).getCountryName();
+        }
+        return null;
+    }
 
     private void updateProfileInfo(String username){
 
@@ -382,6 +415,8 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                     String homelessAddress = place.getAddress();
                     String homelessLatitude = Double.toString(latitude);
                     String homelessLongitude = Double.toString(longitude);
+                    String homelessCity = getCityNameByCoordinates(latitude, longitude);
+                    String homelessCountry = getCountryNameByCoordinates(latitude, longitude);
 
                     DocumentReference documentReference = mFirestore.collection("homeless").document(username);
 
@@ -389,6 +424,8 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                     documentReference.update("homelessAddress", homelessAddress);
                     documentReference.update("homelessLongitude", homelessLongitude);
                     documentReference.update("homelessLatitude", homelessLatitude);
+                    documentReference.update("homelessCity", homelessCity);
+                    documentReference.update("homelessCountry", homelessCountry);
 
                 }
 

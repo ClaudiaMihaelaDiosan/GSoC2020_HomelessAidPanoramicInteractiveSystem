@@ -362,4 +362,7 @@
     <string name="lg_positive_btn">Sí</string>
     <string name="lg_negative_btn">No</string>
 
+    <!--City activity-->
+    <string name="search_hint_city">Ciudad o País</string>
+
 </resources>

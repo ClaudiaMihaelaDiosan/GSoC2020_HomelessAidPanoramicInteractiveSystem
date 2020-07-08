@@ -26,7 +26,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
-        <activity android:name=".liquidGalaxy.ToolsActivity"></activity>
+        <activity android:name=".liquidGalaxy.OneCityActivity"></activity>
+        <activity android:name=".liquidGalaxy.ToolsActivity" />
         <activity android:name=".liquidGalaxy.CititesActivity" />
         <activity android:name=".liquidGalaxy.SettingsActivity" />
         <activity android:name=".liquidGalaxy.HelpActivity" />
@@ -54,8 +55,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".register.RegisterUserActivity" />
-        <activity
-            android:name=".liquidGalaxy.MainActivityLG" />
+        <activity android:name=".liquidGalaxy.MainActivityLG" />
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".login.ForgotPasswordActivity" />
         <activity android:name=".login.LoginActivity" />

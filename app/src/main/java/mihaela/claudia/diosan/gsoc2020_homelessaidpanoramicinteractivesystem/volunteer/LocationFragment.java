@@ -3,6 +3,8 @@ package mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.vo
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -35,9 +37,11 @@ import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import mihaela.claudia.diosan.gsoc2020_homelessaidpanoramicinteractivesystem.MainActivity;
@@ -69,6 +73,8 @@ public class LocationFragment extends Fragment implements  OnMapAndViewReadyList
     private StorageReference storageReference;
     private FirebaseUser user;
     private Map<String,String> homeless = new HashMap<>();
+    private Geocoder mGeocoder;
+
 
     /*SharedPreferences*/
     private SharedPreferences preferences;
@@ -84,6 +90,7 @@ public class LocationFragment extends Fragment implements  OnMapAndViewReadyList
         initMapAndPlaces();
         firebaseInit();
         setupPlaceAutoComplete();
+        mGeocoder = new Geocoder(getActivity(), Locale.getDefault());
 
         return view;
     }
@@ -157,10 +164,14 @@ public class LocationFragment extends Fragment implements  OnMapAndViewReadyList
                     String homelessAddress = place.getAddress();
                     String homelessLatitude = Double.toString(latitude);
                     String homelessLongitude = Double.toString(longitude);
+                    String homelessCity = getCityNameByCoordinates(latitude, longitude);
+                    String homelessCountry = getCountryNameByCoordinates(latitude, longitude);
 
                     homeless.put("homelessAddress", homelessAddress);
                     homeless.put("homelessLongitude", homelessLongitude);
                     homeless.put("homelessLatitude", homelessLatitude);
+                    homeless.put("homelessCity", homelessCity);
+                    homeless.put("homelessCountry", homelessCountry);
 
                     mFirestore.collection("homeless").document(homelessUsername).set(homeless, SetOptions.merge());
 
@@ -201,6 +212,36 @@ public class LocationFragment extends Fragment implements  OnMapAndViewReadyList
             }
         });
     }
+
+    private String getCityNameByCoordinates(double lat, double lon)  {
+
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (addresses != null && addresses.size() > 0) {
+            return addresses.get(0).getLocality();
+        }
+        return null;
+    }
+
+    private String getCountryNameByCoordinates(double lat, double lon){
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (addresses != null && addresses.size() > 0)
+        {
+            return addresses.get(0).getCountryName();
+        }
+        return null;
+    }
+
 
     private static double aroundUp(double number, int canDecimal) {
         int cifras = (int) Math.pow(10, canDecimal);
