@@ -26,7 +26,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
-        <activity android:name=".liquidGalaxy.SettingsActivity"></activity>
+        <activity android:name=".liquidGalaxy.ToolsActivity"></activity>
+        <activity android:name=".liquidGalaxy.CititesActivity" />
+        <activity android:name=".liquidGalaxy.SettingsActivity" />
         <activity android:name=".liquidGalaxy.HelpActivity" />
         <activity
             android:name=".donor.HomeDonor"
@@ -53,9 +55,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".register.RegisterUserActivity" />
         <activity
-            android:name=".liquidGalaxy.MainActivityLG"
-            android:configChanges="orientation|screenSize"
-            android:screenOrientation="landscape" />
+            android:name=".liquidGalaxy.MainActivityLG" />
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".login.ForgotPasswordActivity" />
         <activity android:name=".login.LoginActivity" />
@@ -68,8 +68,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

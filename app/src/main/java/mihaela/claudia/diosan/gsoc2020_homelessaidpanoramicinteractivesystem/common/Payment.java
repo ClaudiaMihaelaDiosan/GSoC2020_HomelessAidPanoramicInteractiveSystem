@@ -24,10 +24,6 @@ public class Payment extends MainActivity {
     MaterialAlertDialogBuilder alertDialogBuilder;
     CurrencyEditText etInput;
 
-    MaterialButton payBtn;
-    CardForm cardForm;
-    MaterialAlertDialogBuilder alertDialogBuilder;
-    CurrencyEditText etInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

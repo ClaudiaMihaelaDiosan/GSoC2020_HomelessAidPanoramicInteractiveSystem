@@ -34,7 +34,7 @@
     <dimen name="through_vol_fragment">100dp</dimen>
     <dimen name="profile_image">100dp</dimen>
     <dimen name="homeless_cv_image">150dp</dimen>
-    <dimen name="intro_image">400dp</dimen>
+    <dimen name="intro_image">200dp</dimen>
     <dimen name="intro_image_layout_width_land">260dp</dimen>
     <dimen name="intro_image_layout_height_land">160dp</dimen>
     <dimen name="delivery_notification_width">100dp</dimen>
